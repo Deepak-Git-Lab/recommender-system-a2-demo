@@ -25,7 +25,6 @@ The system uses two CSV files (MovieLens Dataset downloaded form from GroupLens 
 
 ```bash
 git clone <your-repository-url>
-cd movie-recommendation-main
 ```
 
 ### 2. Create Virtual Environment (Recommended)
@@ -56,7 +55,7 @@ pip install -r requirements.txt
    jupyter notebook
    ```
 
-2. **Open the notebook**: Navigate to and open `khan-A2-movie_rs.ipynb`
+2. **Open the notebook**: Navigate to and open `deepak_saxena_A2_demo.ipynb`
 
 3. **Run all cells**: Execute all cells in order by selecting "Cell" → "Run All" or run each cell individually with `Shift+Enter`
 
@@ -66,48 +65,13 @@ If you prefer to run the code as a Python script:
 
 1. **Convert notebook to Python script**:
    ```bash
-   jupyter nbconvert --to script khan-A2-movie_rs.ipynb
+   jupyter nbconvert --to script deepak_saxena_A2_demo.ipynb
    ```
 
 2. **Run the script**:
    ```bash
-   python khan-A2-movie_rs.py
+   deepak_saxena_A2_demo.ipynb.py
    ```
-
-## How It Works
-
-### 1. Data Preprocessing
-- Loads movie and rating data
-- Converts explicit ratings to implicit feedback (rating ≥ 3.5 = liked)
-- Maps users and movies to matrix indices
-
-### 2. Model Training
-- Uses LightFM with WARP (Weighted Approximate-Rank Pairwise) loss
-- Matrix factorization with 100 latent factors
-- Trains for 20 epochs
-
-### 3. Evaluation
-- Train/test split (80/20)
-- 5-fold cross-validation
-- Metrics: Precision@10, Recall@10, F1-score, AUC
-
-### 4. Recommendations
-
-#### Get recommendations for a user:
-```python
-# Recommend top 5 movies for user 99
-recommendations = recommend_by_user(99, 5)
-for movie_id, title, score in recommendations:
-    print(f"Movie: {title}, Score: {score:.3f}")
-```
-
-#### Find similar movies:
-```python
-# Find movies similar to "Dances with Wolves"
-similar_movies = recommend_by_title("Dances with Wolves", 5)
-for movie_id, title, similarity in similar_movies:
-    print(f"Similar: {title}, Similarity: {similarity:.3f}")
-```
 
 ## Expected Output
 
@@ -127,11 +91,9 @@ When you run the notebook, you should see:
 
 ```
 movie-recommendation-main/
-├── deepak-A2-demo.ipynb    # Main Jupyter notebook
-├── movies.csv               # Movie metadata
-├── ratings.csv              # User ratings data
-├── requirements.txt         # Python dependencies
-└── README.md               # This file
+├── deepak_saxena_A2_demo.ipynb    # Main Jupyter notebook
+├── movies.csv                     # Movie csv file
+├── ratings.csv                    # User ratings csv file
+├── requirements.txt               # Dependencies
+└── README.md                      # This file
 ```
-
-## Troubleshooting
