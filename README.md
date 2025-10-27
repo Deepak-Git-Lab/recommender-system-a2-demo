@@ -5,7 +5,7 @@ This notebook demonstrates a simple movie recommender system built with the Surp
 
 - **User-based Recommendations**: Get personalized movie recommendations for any user
 - **Content-based Recommendations**: Find movies similar to a given title
-- **Model Evaluation**: Cross-validation and performance metrics (Precision@10, Recall@10, F1-score, AUC)
+- **Model Evaluation**: Cross-validation and performance metrics (Precision@5, Recall@5, RMSE)
 - **Implicit Feedback**: Converts ratings to binary preferences (liked/not liked)
 
 ## Dataset
@@ -113,31 +113,21 @@ for movie_id, title, similarity in similar_movies:
 
 When you run the notebook, you should see:
 
-1. **Model Training Progress**: LightFM training output with epoch information
+1. **Model Training Progress**: surprise.model_selection
 2. **Evaluation Metrics**: 
-   - Precision@10: ~0.0200-0.0400
-   - Recall@10: ~0.0150-0.0350
-   - F1@10: ~0.0170-0.0370
-   - AUC: ~0.6500-0.8500
+   - Precision@5: ~0.6639
+   - Recall@5: ~0.4723
+   - RMSE: ~0.8817
 
-3. **Sample Recommendations**: Personalized movie recommendations for user 99
-4. **Similar Movies**: Movies similar to "Dances with Wolves"
-5. **Cross-validation Results**: Average performance across 5 folds with standard deviations
+3. **Sample Recommendations**: Personalized movie recommendations for users 140,603,438
+4. **Predict ratings for unseen movies for a specific user**: user 196.
 
-## Model Performance
-
-The model uses collaborative filtering to learn user preferences and item characteristics. Performance metrics:
-
-- **Precision@10**: Proportion of recommended items that are relevant
-- **Recall@10**: Proportion of relevant items that are recommended
-- **F1@10**: Harmonic mean of precision and recall
-- **AUC**: Area Under the ROC Curve for ranking quality
 
 ## File Structure
 
 ```
 movie-recommendation-main/
-├── khan-A2-movie_rs.ipynb    # Main Jupyter notebook
+├── deepak-A2-demo.ipynb    # Main Jupyter notebook
 ├── movies.csv               # Movie metadata
 ├── ratings.csv              # User ratings data
 ├── requirements.txt         # Python dependencies
